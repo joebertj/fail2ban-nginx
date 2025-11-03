@@ -27,25 +27,3 @@ banaction = iptables-multiport
 maxretry  = 1
 findtime  = 3600
 bantime   = 300
-
-[nginx-prod-double-slash]
-enabled  = true
-port     = http,https
-filter   = nginx-prod-double-slash
-logpath  = /var/log/nginx/error.log
-          /var/log/nginx/prod_errror.log
-maxretry = 1
-findtime = 60
-bantime  = 604800
-action   = iptables[blocktype=DROP]
-
-[nginx-query-ddos]
-enabled  = true
-port     = http,https
-filter   = nginx-query-ddos
-logpath  = /var/log/nginx/access.log
-          /var/log/nginx/prod_access.log
-maxretry = 1
-findtime = 60
-bantime  = 604800
-action   = iptables[blocktype=DROP]
